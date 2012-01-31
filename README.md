@@ -5,7 +5,7 @@ It's easier managing multiple processes in one terminal window vs having a dozen
 ## Features
 
 - Run multiple process in parallel.
-- Restart procs of any cwd's change.
+- Restart procs if any files change.
 - Take running processes and start them under a pearl group.
 
 ## Requirements
