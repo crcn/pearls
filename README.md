@@ -19,7 +19,7 @@ It's easier managing multiple processes in one terminal window vs having a dozen
 
 ## Usage
 
-```bash
+```
 
 Commands:
 	start <prls file>              Start a new group of processes
