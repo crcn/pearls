@@ -20,7 +20,6 @@ It's easier managing multiple processes in one terminal window vs having a dozen
 ## Usage
 
 ```
-
 Commands:
 	start <prls file>              Start a new group of processes
 	manage <group> <pid>...        Takes a running process, and restart it under group
@@ -31,7 +30,6 @@ Commands:
 	save <group> <prls file>       Save a process group to a prls file
 	status <group>                 Show group status
 	watch <group> <proc> <yes|no>  Watches a processes cwd for any file changes
-
 ```
 
 
