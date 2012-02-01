@@ -44,15 +44,17 @@ prls start app-name
 ## Help
 
 ```
-Commands:
-	start <prls file or group>     Start a new group of processes
-	stop <group> <proc>            Stops a process in a group
-	restart <group> <proc>         Restart a process in a group
-	add <group> <cmd>              Adds a process to the given group
-	remove <group> <proc>          Removes a process from a group
-	save <group>                   Save a process group to /etc/pearls/groups
-	status <group>                 Show group status
-	watch <group> <proc> <yes|no>  Watches a processes cwd for any file changes
+Usage: [command] --arg=value --arg2
+
+Help:
+  help        Show help menu                              
+  [cmd] help  Show command help menu                      
+
+Options:
+  add         Adds a command or path to .pls              
+  remove      Removes a group or process                    
+  start       Start a new group of processes                      
+  
 ```
 
 
