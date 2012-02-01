@@ -1,6 +1,6 @@
 ## Motivation
 
-It's easier managing multiple processes in one terminal window vs having a dozen open.
+I built this utility because it's easier managing multiple processes in one terminal window vs having a dozen open.
 
 ## Features
 

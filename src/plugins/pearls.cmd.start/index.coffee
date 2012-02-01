@@ -27,4 +27,9 @@ exports.plugin = () ->
 					cliColor = _procColor source.process.name
 					console.log("%s: %s", source.process.name[cliColor].bold, source.text);
 
+				
+				group.on "stderr", (source) ->
+					cliColor = _procColor source.process.name
+					console.error("%s: %s", source.process.name[cliColor].bold, source.text.red);
+
 		

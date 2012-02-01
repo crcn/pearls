@@ -17,7 +17,8 @@
       "dnode":"<1.0.0",
       "colors":"<0.6.0",
       "fglob":"<0.1.0",
-      "ini":"git+https://github.com/crcn/ini.git"
+      "ini":"git+https://github.com/crcn/ini.git",
+      "hook.io":"<0.9.0"
   },
   "devDependencies": {
   },
