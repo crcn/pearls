@@ -19,6 +19,30 @@ It's easier managing multiple processes in one terminal window vs having a dozen
 
 ## Usage
 
+In the project you want to run parallel processes, add a `app-name.prls` file with content kinda like this:
+
+```ini
+[master]
+command = node ./ --master
+
+[slave]
+command = node ./ --slave
+```
+
+In Terminal, navigate to your project directory, and call:
+
+```
+prls
+```
+
+Pearls will add the processes to a `app-name` group. You can start the process group by calling:
+
+```
+prls start app-name
+```
+
+## Help
+
 ```
 Commands:
 	start <prls file or group>     Start a new group of processes
@@ -33,16 +57,3 @@ Commands:
 ```
 
 
-## Config
-
-In your cwd, write a `.prls` file
-
-```ini
-[process-name]
-command = node ./some/process
-watch = true
-
-[another-process]
-command = node ./another/proc
-watch = false
-```

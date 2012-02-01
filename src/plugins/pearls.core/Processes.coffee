@@ -18,7 +18,7 @@ module.exports = class
 
 	add: (name, ops, callback) ->
 
-		return callback new Error "Process already exists" if @config.get name
+		return callback new Error "Process \"#{name}\" already exists" if @config.get name
 
 		cfg = @config.set name, ops
 
@@ -45,7 +45,7 @@ module.exports = class
 
 	get: (name, callback) ->
 
-		return callback new Error "Process does not exist" if not @config.get name
+		return callback new Error "Process \"#{name}\" does not exist" if not @config.get name
 
 		callback null, @_procs[name] || (@_procs[name] = new SpawnedProcess(name, @config.child(name), this));
 

@@ -15,7 +15,9 @@
       "disposable":"<0.2.0",
       "outcome":"<0.2.0",
       "dnode":"<1.0.0",
-      "colors":"<0.6.0"
+      "colors":"<0.6.0",
+      "fglob":"<0.1.0",
+      "ini":"git+https://github.com/crcn/ini.git"
   },
   "devDependencies": {
   },
