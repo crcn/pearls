@@ -1,5 +1,8 @@
 SpawnedProcess = require "./SpawnedProcess"
 outcome = require "outcome"
+BaseProcess = require "./BaseProcess"
+outcome = require "outcome"
+spawnCollection = require "./spawnCollection"
 
 module.exports = class 
 
@@ -44,43 +47,37 @@ module.exports = class
 
 		return callback new Error "Process does not exist" if not @config.get name
 
-		callback null, @_procs[name] || (@_procs[name] = new SpawnedProcess(name, @config.get(name), this));
+		callback null, @_procs[name] || (@_procs[name] = new SpawnedProcess(name, @config.child(name), this));
 
 	###
 	###
 
 	all: (callback) ->
 		
-		procs = Object.keys @config.get()
+		procs = Object.keys @config.get() || {}
 		numRunning = procs.length + 1
 		all = []
 
 		onProcess = () ->
-			callback null, all if not --running
+			callback null, all if not --numRunning
 
 		for proc in procs
-			self.get proc, (inst) ->
+			@get proc, outcome success: (inst) ->
 				all.push inst
 				onProcess()
 
 		## incase there aren't any processes
 		onProcess()
 
+
 	###
 	###
 
-	start: (name, callback) ->
+	_spawn: (callback) ->
 		
-		this.get name, outcome
-			success: (proc) -> proc.start callback
-			error: callback
+		@all outcome success: (processes) =>
+			
+			spawnCollection processes, callback
 
 
-	###
-	###
 
-	stop: (name, callback) ->
-		
-		this.get name, outcome
-			success: (proc) -> proc.stop callback
-			error: callback

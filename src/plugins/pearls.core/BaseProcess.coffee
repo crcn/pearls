@@ -24,7 +24,7 @@ module.exports = class
 		return callback new Error "Process is already running" if @running()
 
 
-		_spawn outcome success: (proc)=>
+		@_spawn outcome success: (proc)=>
 			
 			@_process = proc
 

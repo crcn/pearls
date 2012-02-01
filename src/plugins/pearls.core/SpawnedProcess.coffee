@@ -1,7 +1,8 @@
 EventEmitter = require("events").EventEmitter
 spawn = require("child_process").spawn
+BaseProcess = require "./BaseProcess"
 
-module.exports = class extends require "./BaseProcess"
+module.exports = class extends BaseProcess
 
 	###
 	###
@@ -13,8 +14,14 @@ module.exports = class extends require "./BaseProcess"
 
 		proc = spawn @config.get("command"), @config.get("arguments"), cwd: @config.get("directory")
 
-		proc.stdout.on "data", (buffer) => em.emit "stdout", @_out buffer
-		proc.stderr.on "data", (buffer) => em.emit "stderr", @_out buffer
+		out = (type, buffer) ->
+			buffer = String(buffer)
+			for chunk in buffer.split /\n+/g
+				continue if !chunk.match(/[^\s]+/)
+				em.emit type, chunk
+
+		proc.stdout.on "data", (buffer) -> out "stdout", buffer
+		proc.stderr.on "data", (buffer) -> out "stderr", buffer
 		proc.on "exit", () -> em.emit "exit"
 
 		callback null,
@@ -22,8 +29,4 @@ module.exports = class extends require "./BaseProcess"
 			kill: () -> proc.kill()
 
 
-
-	_out: (buffer) ->
-
-		return String(buffer).replace(/\n+/g,'');
 		
