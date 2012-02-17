@@ -2,28 +2,25 @@
   "name": "pearls",
   "description": "Run parallel processes",
   "version": "0.0.1",
-  "repository": {
-  },
-  "engines": {
-  },
+  "repository": {},
+  "engines": {},
   "dependencies": {
-      "celeri":"<0.3.0",
-      "haba":"<0.2.0",
-      "beanpoll":"<0.3.0",
-      "mkdirp":"<0.4.0",
-      "yaconfig":"<0.2.0",
-      "disposable":"<0.2.0",
-      "outcome":"<0.2.0",
-      "dnode":"<1.0.0",
-      "colors":"<0.6.0",
-      "fglob":"<0.1.0",
-      "ini":"git+https://github.com/crcn/ini.git",
-      "hook.io":"<0.9.0"
+    "celeri": "<0.3.0",
+    "haba": "<0.2.0",
+    "beanpoll": "<0.3.0",
+    "mkdirp": "<0.4.0",
+    "yaconfig": "<0.2.0",
+    "disposable": "<0.2.0",
+    "outcome": "<0.2.0",
+    "dnode": "<1.0.0",
+    "colors": "<0.6.0",
+    "fglob": "<0.1.0",
+    "ini": "git+https://github.com/crcn/ini.git",
+    "hook.io": "<0.9.0"
   },
-  "devDependencies": {
-  },
-  "bin":{
+  "devDependencies": {},
+  "bin": {
     "prls": "./bin/prls"
   },
-  "main":"./lib/index.js"
+  "main": "./lib/index.js"
 }
